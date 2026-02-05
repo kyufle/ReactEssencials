@@ -1,3 +1,4 @@
+import Logo from "../assets/logo.png"
 function Header(){
     const words = ['Crucial', 'Core', 'Fundamental'];
     function randomWords(max){
@@ -5,7 +6,7 @@ function Header(){
     }
     return(
     <header>
-      <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
+      <img src={Logo} alt="Stylized atom" />
       <h1>React Essentials</h1>
       <p>
         {words[randomWords(words.length-1)]} React concepts you will need for almost any app you are

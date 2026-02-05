@@ -28,11 +28,16 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(90deg, rgba(28, 19, 108, 1) 0%, rgba(45, 27, 145, 1) 50%, rgba(30, 18, 126, 1) 100%);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  background: linear-gradient(90deg, rgba(252, 216, 253, 1) 0%, rgba(249, 240, 255, 1) 50%, rgba(209, 239, 255, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;  
 }
 
 button {
@@ -52,6 +57,13 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+img{
+  width: 150px;
+}
+p{
+  color: #9982d2;
 }
 
 @media (prefers-color-scheme: light) {
