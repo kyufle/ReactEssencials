@@ -1,5 +1,9 @@
+import Button from "./components/Button";
+import GameBoard from "./components/Gameboard";
+import Player from "./components/Player";
+
 /**
- * 1. We can add html static info outside from React Components, ie. header directly on index.html
+ * ✅ 1. We can add html static info outside from React Components, ie. header directly on index.html
  * <header>
  *    <img src="" alt="" />
  *    <h1>Tic-tac-toe</h1>
@@ -8,7 +12,7 @@
  * Differences between images (or files) in public (publicly available) vs src(available only inside Components)
  * 
  * 
- * 2. Create the main sections of the game
+ * ✅ 2. Create the main sections of the game
  * MAIN
  *  Players
  *  Game board
@@ -23,7 +27,7 @@
   LOG
 </main>
 
-3. Add some html structure for style purpose
+✅ 3. Add some html structure for style purpose
 
         <main>
       <div id="game-container">
@@ -46,19 +50,19 @@
       LOG
     </main>
 
-  4. Add buttons to change name player, What happen with this code?
+✅  4. Add buttons to change name player, What happen with this code?
 
-  5. Create a new component Player
+✅ 5. Create a new component Player
 
-  6. Add functionality to the edit button, set span with the player name or
+✅  6. Add functionality to the edit button, set span with the player name or
   an input if the edit button is pressed.
   Enter a name and with a enter key pressed save the name and show the span again
 
-  7. explain with an example why we have to use this form setVariable((oldValue) => ...) instead
+✅  7. explain with an example why we have to use this form setVariable((oldValue) => ...) instead
   setVariable(variable + modification)
   setIsEditing is a good example
 
-  8. Now, move on to the next component GameBoard. Let's create this structure:
+✅  8. Now, move on to the next component GameBoard. Let's create this structure:
 
       <ol id="game-board">
       <li>
@@ -85,7 +89,7 @@
     </ol>
 
 
-    9. On click on each button set an X o O doesn't matter right now by modifying the GameBoard
+✅ 9. On click on each button set an X o O doesn't matter right now by modifying the GameBoard
 
     10. Manage the click on square in App Component to set the active player. 
     We have to send this information to Player and GameBoard also we have to add a class (highlight-player) to <ol>
@@ -103,7 +107,28 @@
     create new function outside App function and pass as a parameter gameturns
  * **/
 function App() {
-  return <h1>React Tic-Tac-Toe</h1>;
+  return (
+    <main>
+      <div id="game-container">
+        <ol id="players">
+          <li>
+            <Player
+              initialName="Player1"
+              symbol="X"
+            />
+          </li>
+          <li>
+            <Player
+              initialName="Player2"
+              symbol="O"
+            />
+          </li>
+        </ol>
+        <GameBoard/>
+      </div>
+      LOG
+    </main>
+  );
 }
 
 export default App;
