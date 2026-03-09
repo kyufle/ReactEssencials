@@ -22,10 +22,10 @@ function App() {
 
   function handleSelectPlace(id) {
     setPickedPlaces((prevPickedPlaces) => {
-      if (prevPickedPlaces.some((place) => place.id === id)) {
+      if (prevPickedPlaces.some((place) => place.id === id)) { //booleano
         return prevPickedPlaces;
       }
-      const place = AVAILABLE_PLACES.find((place) => place.id === id);
+      const place = AVAILABLE_PLACES.find((place) => place.id === id); //devuelve el sitio
       return [place, ...prevPickedPlaces];
     });
   }
