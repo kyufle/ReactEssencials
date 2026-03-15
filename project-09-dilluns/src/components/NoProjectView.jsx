@@ -1,4 +1,4 @@
-function Sidebar(){
+function NoProjectView(){
     return(
         <div>
             <h2>Proyectos</h2>
@@ -7,4 +7,4 @@ function Sidebar(){
         </div>
     );
 }
-export default Sidebar;
+export default NoProjectView;

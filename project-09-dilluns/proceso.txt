@@ -1,0 +1,168 @@
+ESTRUCTURA
+
+sidebar
+
+main
+ - NoProjectView
+ - createProjectView
+-----
+
+En la app añadimos un div y un main
+creamos un compo sidebar,
+
+dentro del compo de sidebar, devolvemos un div, dentro de ese div ponemos un h2 , 
+y devolvemos una lista y un btom. y en app vamos a importar el compo sidebar
+
+creamos un componente (NoProjectView) para cuando no tengamos un proyecto, y será el main inicial, un titulo, un parrafo y 
+un bton.
+
+
+ACCION BTOON
+1. hacer click --> en la app general enseña otro compo (NUEVO Componente = createProjectView) , 
+será un formulario :   
+DIV
+  - 2 botones 'Save' 'Cancel' (1 parrafo con 2 botones)
+  FORM
+  - title (label + input)
+  - description (label + textarea)
+  - due date (label + input type date)
+
+en la app , creamos una variable de stado useState para caundo iniciemos el formulario cmabie de estaod y muestre el from,
+{currentView === NoProject && <NoProjectView/>}
+{currentView === createProject && <CreateProject/>}
+
+creamos una funcion para crear un proyecto handle() para un nuevo proyecto , 
+ponemos la varible de estado nueva set('createProject')
+
+SIDEBAR tendra un parametro de onCreateProject ={la funcion}
+DIV
+h2
+button onclick NUEVO PRO
+ul
+li
+
+BOTON Cancel
+en app hacemos otra funcion handle , que cogerá la varieble de estado llamando a No project y abajo en las urrent del main 
+{currentView === createProject && createProject} le ponemos la funcion de cancel para volver a la vista no proyectos
+
+
+create project view {oncancelcreateproject} (
+    variable referencia al formulario userRef
+    funcion para el save (
+        variable from = nuevo from FormData(varRef.current)
+
+
+        onAddPro({
+            id:new Date().getUTCMilisecoons()
+            title:form.get(''), 
+            ...
+            })
+    )
+
+    -- return --
+    pagina conn los dos btootnes en un parrafo 
+    bton save saveProjectHandle
+    bton cancel oncancelcreateproject
+    ----
+    formulario ref=variable
+    3 labels x cada 1
+    1 input title
+    1 textarea description
+    1 input type date duedate
+)
+
+APP
+variable de estado currentView = useState('NoProject')
+variable de estado setProjectManager = state({
+    currentProject: null
+    projects:[ ARRAY DE PROYECTOS
+        {ejmplo ; 
+            id:
+            title:
+            description:
+            date: new date()
+        },
+        {
+
+        }
+    ]
+})
+
+funcion añadirPro(projec){
+    variable setProMan((prevProMana) => {
+        devuelve un nuevo objeto {
+            ...prevProMana,
+            "copiarl array" --> projects:[...prevProMana.projects, project]
+        }
+    })
+}
+
+creamos la funcion SelectProjHandle(id){
+    setcurrentview('project)
+    setpro prev => {
+        trun
+        ...ppre
+        currentProject: id,
+        projects:[...prevproma.projects]
+    }
+}
+
+
+{currentView === NoProject && NoProjectView
+onCreateProject = createProjectView}
+
+{currentView === createProject && createProject
+oncancelcreateproject
+añadirPro}
+
+{currentView === "Project" && ProjectView}
+
+
+-- retunr --
+sidebar 
+main
+
+
+SIDEBAR
+onCreateProject
+onSelectProj
+projectmanager
+retunr
+    div
+    h2
+    button on create projec
+    ul {projectmanager.projects.map(project) => (
+        li key=>{project.id}
+        button {project.title} 
+        li 
+        )}
+
+    en el onlcikl del bbtn ponemos funcion anonima ()=> onSelectProj(project.id)
+
+    
+CAMBIAMOS cancelproyectHandle  -- > setNotProjectViewHandle
+
+
+NUEVO COMPO ProjectView --> visualizar un pro
+funcion (
+    retunr
+        div
+            p
+                h2
+                button
+            p
+            p date
+            p description
+            hr 
+            h3
+            p
+                input text 
+                button
+            pa
+            (2 OPCS)
+            1.  p no tiene task
+
+            2.  (PART DINAM)
+                ul
+                    li
+)
