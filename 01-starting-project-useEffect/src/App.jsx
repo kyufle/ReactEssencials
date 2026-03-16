@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+//si le das a borrar y si en tardas 3 segundos es un si. Si le das que no es que no y si le das que si es que si.
 
 import Places from './components/Places.jsx';
 import { AVAILABLE_PLACES } from './data.js';
@@ -6,10 +7,20 @@ import Modal from './components/Modal.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 import logoImg from './assets/logo.png';
 
+const ids = JSON.parse(localStorage.getItem('selectedIds') || []);
+const selectedPlaces = ids.map((id) => AVAILABLE_PLACES.find((place) => place.id === id));
+
 function App() {
   const modal = useRef();
   const selectedPlace = useRef();
-  const [pickedPlaces, setPickedPlaces] = useState([]);
+  const [pickedPlaces, setPickedPlaces] = useState(selectedPlaces || []);
+  const [sortedPlaces, setSortedPlaces] = useState([]);
+  navigator.geolocation.getCurrentPosition((position)=>{
+    sortPlacesByDistance
+  })
+  //funcion para poder ordenar, quiero una lista que tenga todos los sitios ordenados.
+  //Hay que tener en cuenta que están los AVAILABLE_PLACES y position.
+  //
 
   function handleStartRemovePlace(id) {
     modal.current.open();
@@ -35,6 +46,10 @@ function App() {
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
     );
     modal.current.close();
+
+    const ids = JSON.parse(localStorage.getItem('selectedIds') || []);
+    const newIds = ids.filter((idPlace)=>idPlace !== selectedPlace.current);
+    localStorage.setItem('selectedIds', JSON.stringify(newIds));
   }
 
   return (
